@@ -22,9 +22,9 @@ deploy:
   - 80
 
 volumes:      
-- claim: vault-data
+- claim: awx-projects
   mount: /var/lib/awx/projects
-  name: data
+  name: projects
   size: 5Gi
   mode: ReadWriteOnce
 
