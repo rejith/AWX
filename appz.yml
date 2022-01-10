@@ -23,7 +23,7 @@ deploy:
 
 volumes:      
 - claim: vault-data
-  mount: /appz/data
+  mount: /var/lib/awx/projects
   name: data
   size: 5Gi
   mode: ReadWriteOnce
