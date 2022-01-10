@@ -1,0 +1,33 @@
+app:
+  name: AWX
+  code: AWX
+  notify: krishnan.rejith@gmail.com
+
+build:
+  version: 17.1
+  env: DEV
+  build_file: none
+  output_files: output/*.zip
+  image_template: 
+  - awxtask-17.1
+  - awxweb-17.1
+  - redis-6.2
+  image_name: myco/awx
+
+deploy:
+  context: myco/DEV
+  type: statefulset
+  replicas: 1
+  port:
+  - 80
+
+volumes:      
+- claim: vault-data
+  mount: /appz/data
+  name: data
+  size: 5Gi
+  mode: ReadWriteOnce
+  class: microk8s-hostpath
+
+properties:
+  revision : 15
