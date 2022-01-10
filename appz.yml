@@ -27,7 +27,6 @@ volumes:
   name: data
   size: 5Gi
   mode: ReadWriteOnce
-  class: microk8s-hostpath
 
 properties:
   revision : 15
